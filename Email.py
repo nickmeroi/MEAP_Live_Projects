@@ -1,9 +1,9 @@
-import operator
-from itertools import chain, combinations
 import random
 import smtplib
 import csv
+import time
 from pprint import pprint
+
 
 
 def inspect_file(file):
@@ -44,6 +44,8 @@ def send_mail(students, lucky_student, email_srv, sender):
              {'You’ve been randomly chosen to present a summary ' 
               'of the book in the next class. Looking forward to it!' if student == lucky_student else ''}
             """
+
+        time.sleep(1)
         email_srv.sendmail(sender, student, "Book Assignment Scores")
 
 
